@@ -1,5 +1,15 @@
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
 app = Flask(__name__)
+
+# データベースの接続先を設定
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+if bool(os.environ.get('LOCAL_DEV', False)):
+	app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+db = SQLAlchemy(app)
 
 @app.route('/')
 def hello_world():
