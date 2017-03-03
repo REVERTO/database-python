@@ -12,6 +12,12 @@ if bool(os.environ.get('LOCAL_DEV', False)):
 
 ```
 
+```
+$ export LOCAL_DEV="1"
+$ export -p
+declare -x LOCAL_DEV="1"
+```
+
 
 # Heroku上で
 
