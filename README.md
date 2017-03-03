@@ -4,6 +4,14 @@
 [Quickstart - flask-sqlalchemy](http://flask-sqlalchemy.pocoo.org/2.1/quickstart/)  
 
 # ローカルで
+```python
+# ローカルと本番でDBの接続先切り替え
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+if bool(os.environ.get('LOCAL_DEV', False)):
+	app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+
+```
+
 
 # Heroku上で
 

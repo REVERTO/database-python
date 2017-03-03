@@ -1,0 +1,13 @@
+<!doctype html>
+<title>database-python</title>
+
+<table>
+  <tr>
+    <th>id
+	<th>name
+  {%- for u in users %}
+  <tr>
+    <td>{{ u.id }}
+    <td>{{ u.name }}
+  {%- endfor %}
+</table>
